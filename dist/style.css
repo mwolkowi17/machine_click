@@ -1,0 +1,39 @@
+#start_button{
+    position:absolute;
+    bottom: 25px;
+    left: 100px;
+}
+
+#stop_button{
+    position: absolute;
+    bottom: 25px;
+    left: 265px;
+}
+
+#reset_button{
+    position: absolute;
+    bottom: 25px;
+    left: 180px;
+}
+
+#close_button{
+    position: absolute;
+    bottom: 25px;
+    left: 380px;;
+}
+
+.progressContainer{
+    position: absolute;
+    width:100%;
+    height: 70px;
+    margin-top: 30%;
+    text-align: center;
+}
+    
+.progressInfo{
+       
+        top: 20px;
+        color: black;
+        visibility: visible;
+    
+}
