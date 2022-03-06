@@ -33,7 +33,7 @@ controls.update();
 controls.autoRotate = false;
 const clock = new THREE.Clock();
 
-renderer.domElement.addEventListener('dblclick', onClick, false);
+renderer.domElement.addEventListener('click', onClick, false);
 
 const animate = function () {
   requestAnimationFrame(animate);
@@ -46,8 +46,10 @@ const animate = function () {
   if (mixer) mixer.update(delta);
 }
 
+let clicked=false;
+
 function onClick(event) {
-  console.log('click')
+  
   event.preventDefault();
 
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
@@ -62,8 +64,16 @@ function onClick(event) {
 
     console.log('Intersection:', intersects[0]);
     mixer.setTime(0);
-    mixer.timeScale = 1
-    //closed=true;
+    /*if(clicked===true){
+      mixer.timeScale=0
+      clicked=false;
+    }
+    if(clicked===false){
+      mixer.timeScale = 1
+      clicked=true;
+      //closed=true;
+    }*/
+    
     action.play();
     action2.play();
     action3.play();
@@ -81,6 +91,8 @@ function onClick(event) {
     action15.play();
     action16.play();
     action17.play();
+
+    
 
     //const dispalyDetails = document.getElementsByClassName('display')[0];
     //dispalyDetails.style.visibility='visible'
