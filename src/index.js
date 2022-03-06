@@ -6,6 +6,9 @@ import { mixer, action, gltfLoader2 } from './loader';
 
 export const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2()
+
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -30,6 +33,8 @@ controls.update();
 controls.autoRotate=false;
 const clock= new THREE.Clock();
 
+renderer.domElement.addEventListener('dblclick', onClick, false);
+
 const animate = function () {
     requestAnimationFrame(animate);
     var delta = clock.getDelta(); // clock is an instance of THREE.Clock
@@ -40,4 +45,27 @@ const animate = function () {
     controls.update()
     if (mixer ) mixer.update( delta );
 }
+
+function onClick(event) {
+    console.log('click')
+    event.preventDefault();
+  
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  
+    raycaster.setFromCamera(mouse, camera);
+  
+    const intersects = raycaster.intersectObjects(scene.children, true);
+    const dispalyDetails = document.getElementsByClassName('display')[0]
+  
+    if (intersects.length > 0) {
+  
+      console.log('Intersection:', intersects[0]);
+      
+      //const dispalyDetails = document.getElementsByClassName('display')[0];
+      //dispalyDetails.style.visibility='visible'
+  
+    }
+  
+  }
 animate();
