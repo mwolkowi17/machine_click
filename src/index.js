@@ -12,7 +12,14 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.shadowMap.enabled = true;
 document.body.appendChild(renderer.domElement);
 
-scene.background = new THREE.Color( 0xFFFFFF );
+scene.background = new THREE.Color( 0x000000 );
+
+scene.add(light2);
+scene.add(light2.target);
+scene.add(light3);
+scene.add(light3.target);
+scene.add(light4);
+scene.add(light4.target);
 
 camera.position.z = 6;
 camera.position.y = 2;
@@ -31,5 +38,6 @@ const animate = function () {
     
   
     controls.update()
+    if (mixer ) mixer.update( delta );
 }
 animate();
