@@ -64,15 +64,15 @@ function onClick(event) {
 
     console.log('Intersection:', intersects[0]);
     mixer.setTime(0);
-    /*if(clicked===true){
+    if(clicked===true){
       mixer.timeScale=0
-      clicked=false;
+      clicked=!clicked;
     }
-    if(clicked===false){
+    else if(clicked===false){
       mixer.timeScale = 1
-      clicked=true;
+      clicked=!clicked;
       //closed=true;
-    }*/
+    }
     
     action.play();
     action2.play();
