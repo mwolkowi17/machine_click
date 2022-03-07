@@ -37,3 +37,10 @@
         visibility: visible;
     
 }
+
+.info1{
+    position:absolute;
+    bottom:25px;
+    left: 45%;
+    color: white;
+}
