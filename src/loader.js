@@ -7,11 +7,11 @@ export let action;
 export let action2,action3,action4,action5,action6,action7,action8,action9,action10,action11,action12,action13,action14,action15,action16,action17;
 export const gltfLoader2 = new GLTFLoader()
 
-/*function Progress(){
+function Progress(){
     console.log('loading');
     const progressInfo=document.getElementsByClassName('progressInfo')[0];
     progressInfo.style.visibility = 'visible';
-  }*/
+  }
 
   gltfLoader2.load('./kruszarka_szczekowa1_wer15_scena3.gltf', (gltf) => {
     const root = gltf.scene;
@@ -40,7 +40,7 @@ export const gltfLoader2 = new GLTFLoader()
    
     console.log(anim);
     //action.play();
-   // const progressInfo=document.getElementsByClassName('progressInfo')[0];
-    //progressInfo.style.visibility = 'hidden';
+   const progressInfo=document.getElementsByClassName('progressInfo')[0];
+   progressInfo.style.visibility = 'hidden';
    
-  });
+  },Progress());
